@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Analysis</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Stock Market Companies</h1>
+        <div class="row">
+            {% for symbol, stock in companies.items() %}
+                <div class="col-md-4 mt-4">
+                    <div class="card">
+                        <img src="{{ stock.logo }}" class="card-img-top" alt="{{ stock.company_name }} Logo">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ stock.company_name }}</h5>
+                            <p class="card-text">Current Price: ₹{{ stock.price }}</p>
+                            <a href="/stock/{{ symbol }}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
